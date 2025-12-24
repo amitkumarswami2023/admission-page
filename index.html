@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Bootstrap CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Swiper CSS -->
+    <style>
+        /* HEADER */
+        #mainHeader {
+            transition: all 0.3s ease;
+            background: transparent;
+            z-index: 999;
+        }
+
+        #mainHeader.scrolled {
+            background: #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        #mainHeader.scrolled span,
+        #mainHeader.scrolled i {
+            color: #000;
+        }
+
+        /* ===== HERO BASE ===== */
+        .hero-section {
+            min-height: 100vh;
+            padding: 250px 0 80px;
+            background: url("assets/img/Banner-image.webp") center center / cover no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                    rgba(255, 255, 255, 0.55),
+                    rgba(3, 3, 3, 0.65));
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== RIGHT CARD ===== */
+        .form-placeholder {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 18px;
+            min-height: 420px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ===================================================
+   TABLET (≤ 991px)
+=================================================== */
+        @media (max-width: 991px) {
+            .hero-section {
+                min-height: auto;
+                padding: 160px 0 60px;
+                text-align: center;
+                background-position: center top;
+            }
+
+            .hero-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-section p {
+                font-size: 0.95rem;
+            }
+
+            .form-placeholder {
+                margin-top: 35px;
+                min-height: 380px;
+            }
+        }
+
+        /* ===================================================
+   MOBILE (≤ 575px)
+=================================================== */
+        @media (max-width: 575px) {
+            .hero-section {
+                padding: 120px 0 40px;
+            }
+
+            .hero-section h2 {
+                font-size: 1.5rem;
+                line-height: 1.3;
+            }
+
+            .hero-section p {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-section img {
+                max-width: 90%;
+                margin: 0 auto;
+                display: block;
+            }
+
+            .form-placeholder {
+                min-height: 300px;
+                border-radius: 14px;
+            }
+        }
+    </style>
+    <style>
+        .stats-section {
+            padding: 60px 0;
+            background: url("assets/img/stats-image.webp") center/cover no-repeat;
+        }
+
+        .stat-box {
+            position: relative;
+        }
+
+        .stat-box h2 {
+            font-weight: 800;
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
+
+        .stat-box p {
+            font-size: 14px;
+            color: #4b5b7a;
+            margin-bottom: 0;
+        }
+
+        /* vertical divider (desktop only) */
+        @media (min-width: 992px) {
+            .stat-box::after {
+                content: "";
+                position: absolute;
+                right: -10px;
+                top: 10%;
+                height: 80%;
+                width: 1px;
+                background: rgba(0, 0, 0, 0.15);
+            }
+
+            .stat-box:last-child::after {
+                display: none;
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 991px) {
+            .stat-box h2 {
+                font-size: 34px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 575px) {
+            .stats-section {
+                padding: 40px 0;
+            }
+
+            .stat-box h2 {
+                font-size: 28px;
+            }
+
+            .stat-box p {
+                font-size: 13px;
+            }
+        }
+    </style>
+    <style>
+        .about-sgt {
+            background-color: #ffffff;
+        }
+
+        .about-sgt h2 {
+            font-size: 32px;
+        }
+
+        .about-sgt p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .about-naac-badge {
+            max-width: 180px;
+        }
+    </style>
+    <style>
+        .disciplines-section {
+            background: linear-gradient(180deg,
+                    #ffffff 0%,
+                    #f7fbff 50%,
+                    #eef6ff 100%);
+        }
+
+        .discipline-list li {
+            padding: 5px 0;
+            color: #42526e;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .disciplines-img {
+            max-height: 480px;
+        }
+
+        /* ✅ Mobile & tablet optimization */
+        @media (max-width: 991px) {
+
+            .disciplines-section {
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
+
+            .discipline-list {
+                margin-bottom: 20px;
+            }
+
+            .discipline-list li {
+                padding: 4px 0;
+                font-size: 14px;
+            }
+
+            .disciplines-img {
+                max-height: 280px;
+                margin-bottom: 10px;
+            }
+
+            .badge {
+                margin-bottom: 8px;
+            }
+        }
+    </style>
+    <style>
+        .ranking-section {
+            background-color: #fff;
+        }
+
+        .rank-box {
+            padding: 15px 10px;
+        }
+
+        .rank-logo {
+            width: 180px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .rank-box p {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 575px) {
+            .rank-box {
+                flex-direction: row;
+            }
+
+            .rank-logo {
+                width: 60px;
+            }
+
+            .rank-box p {
+                font-size: 14px;
+            }
+        }
+    </style>
+    <style>
+        .admissions-section {
+            background: #ffffff;
+        }
+
+        /* Image */
+        .admissions-img {
+            max-width: 100%;
+        }
+
+        /* Content text sizing */
+        .admissions-content h3 {
+            font-size: 1.8rem;
+        }
+
+        .admissions-content p {
+            color: #333;
+        }
+
+        /* List styling */
+        .scholarship-list {
+            padding-left: 1.2rem;
+        }
+
+        .scholarship-list li {
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        /* Button */
+        .apply-btn {
+            padding: 12px 32px;
+            font-size: 1rem;
+            border-radius: 8px;
+        }
+
+        /* ------------------ */
+        /* MOBILE OPTIMIZATION */
+        /* ------------------ */
+        @media (max-width: 991px) {
+
+            .admissions-section {
+                text-align: left;
+                /* prevent awkward center alignment */
+            }
+
+            .admissions-img {
+                margin-bottom: 10px;
+            }
+
+            .admissions-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .admissions-content p {
+                font-size: 1rem;
+            }
+
+            .scholarship-list li {
+                font-size: 0.95rem;
+            }
+
+            .apply-btn {
+                /* width: 100%; */
+                /* full-width button looks better */
+                text-align: center;
+            }
+        }
+    </style>
+    <style>
+        /* SECTION */
+        .recruiters-section {
+            background: #ffffff;
+        }
+
+        /* LEFT HEADING */
+        .recruiter-heading {
+            font-size: 2.9rem;
+            font-weight: 800;
+            line-height: 1.15;
+        }
+
+        /* STATS */
+        .stats-block {
+            margin-top: 20px;
+
+        }
+
+        .stat-item {
+            margin-bottom: 18px;
+        }
+
+
+        .stat-item h3 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .stat-item p {
+            margin: 0;
+            font-size: 1.35rem;
+            color: #333;
+        }
+
+        /* LOGO BOX */
+        .logo-box {
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #e5e5e5;
+            background: #fff;
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        .logo-box img {
+            max-width: 100%;
+            max-height: 55px;
+            object-fit: contain;
+        }
+
+        /* ---------- RESPONSIVE FIXES ---------- */
+
+        /* Tablets */
+        @media (max-width: 991px) {
+            .recruiter-heading {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 575px) {
+            .recruiter-heading {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .stats-block {
+                text-align: center;
+            }
+
+            .stat-item h3 {
+                font-size: 1.6rem;
+            }
+
+            .logo-box {
+                height: 80px;
+            }
+        }
+    </style>
+    <style>
+        .key-features-section {
+            background: linear-gradient(180deg,
+                    #ffffff 0%,
+                    #f5fbff 60%,
+                    #eef6ff 100%);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .feature-list img {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .feature-list p {
+            margin: 0;
+            color: #24304a;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Mobile Improvements */
+        @media (max-width: 767px) {
+
+            .key-features-section h2 {
+                text-align: center;
+            }
+
+            .feature-list li {
+                gap: 12px;
+            }
+
+            .feature-list p {
+                font-size: 15px;
+            }
+        }
+    </style>
+    <style>
+        .international-collab-section {
+            position: relative;
+            padding: 80px 0;
+            background-image: url("assets/img/stats-image.webp");
+            /* CHECK PATH */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Optional soft overlay for better contrast */
+        .international-collab-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            /* background: linear-gradient(180deg,
+                    rgba(255, 255, 255, 0.85),
+                    rgba(255, 255, 255, 0.6)); */
+        }
+
+        .logos-wrapper img {
+            border-radius: 10px;
+        }
+
+        .international-collab-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Logo Image Styling */
+        .collab-logos-wrapper {
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .collab-logos {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Responsive heading tuning */
+        @media (max-width: 768px) {
+            .international-collab-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+    <style>
+        .testimonial-section {
+            background: #fff;
+        }
+
+        /* Card */
+        .testimonial-card {
+            background: #0a5fa8;
+            border-radius: 28px;
+            padding: 40px;
+            color: #fff;
+        }
+
+        /* Image */
+        .testimonial-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Text */
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #e8f3ff;
+        }
+
+        /* Navigation buttons */
+        .testimonial-nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .testimonial-prev,
+        .testimonial-next {
+            position: static;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #eaf2fb;
+        }
+
+        .testimonial-next {
+            background: #0a5fa8;
+        }
+
+        .testimonial-prev::after,
+        .testimonial-next::after {
+            font-size: 16px;
+            font-weight: bold;
+            color: #0a5fa8;
+        }
+
+        .testimonial-next::after {
+            color: #fff;
+        }
+
+        /* Mobile */
+        @media (max-width: 767px) {
+            .testimonial-card {
+                padding: 24px;
+                text-align: center;
+            }
+
+            .testimonial-text {
+                font-size: 15px;
+            }
+        }
+    </style>
+    <style>
+        .admission-process-section {
+            background-color: #fff;
+        }
+
+        .admission-process-img img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Optional spacing for mobile */
+        @media (max-width: 768px) {
+            .admission-process-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    <style>
+        .future-leaders-section {
+            min-height: 850px;
+            background: #ffffff;
+        }
+
+        /* Blue semi-circle */
+        .bg-circle-img {
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110%;
+            min-height: 310px;
+            max-width: 80%;
+            z-index: 1;
+        }
+
+        /* Building image */
+        .building-img {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 100%;
+            z-index: 2;
+            min-height: 310px;
+        }
+
+        /* Ensure text stays above images */
+        .future-leaders-section .container {
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .bg-circle-img {
+                width: 130%;
+                top: -60px;
+                display: none;
+            }
+
+            .building-img {
+                max-width: 100%;
+            }
+
+            .future-leaders-section {
+                min-height: 460px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .bg-circle-img {
+                width: 160%;
+                top: -40px;
+                display: none;
+            }
+
+            .future-leaders-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .future-leaders-section p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+    <style>
+        /* Footer Base */
+        .sct-footer {
+            background: #ffffff;
+            font-size: 14px;
+        }
+
+        /* Logos */
+        .footer-logo {
+            max-height: 65px;
+        }
+
+        .footer-naac {
+            max-height: 50px;
+        }
+
+        /* Contact Info */
+        .footer-contact li {
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .footer-contact img {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+        }
+
+        /* Social Icons */
+        .footer-social img {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-social a:hover img {
+            transform: scale(1.15);
+        }
+
+        /* Bottom Bar */
+        .footer-bottom {
+            border-top: 1px solid #e5e5e5;
+            font-size: 13px;
+            color: #000;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 767px) {
+            .footer-social {
+                justify-content: flex-start;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="mainHeader" class="position-fixed top-0 w-100 py-3">
+        <div class="container-fluid px-5">
+            <div class="d-flex align-items-center justify-content-between">
+
+                <!-- Left -->
+                <div class="d-flex align-items-center gap-3">
+                    <img src="assets/img/Footer_Phone Icon.svg" alt="">
+                    <span style="font-size: 22px; font-weight: 600;">1800 102 5661</span>
+                </div>
+
+                <!-- Center Logo -->
+                <div class="text-center">
+                    <img src="assets/img/SGT Logo.svg" height="65" alt="SGT University">
+                </div>
+
+                <!-- Right -->
+                <a href="#" class="btn btn-primary rounded-3 px-4">Login</a>
+
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-start gx-5"> <!-- gx-5 adds gap -->
+
+                <!-- LEFT CONTENT -->
+                <div class="col-lg-7 text-black text-center text-lg-start pt-4 pt-lg-0">
+                    <h2 class="fw-bold mb-2">
+                        Proudly Rated Among the Top Universities
+                    </h2>
+
+                    <p class="fst-italic mb-4 fw-bold">
+                        by Leading National and International Institutions.
+                    </p>
+
+                    <!-- SINGLE LOGO IMAGE -->
+                    <img src="assets/img/banner-logos.webp" class="img-fluid" alt="University Rankings">
+                </div>
+
+                <!-- RIGHT EMPTY FORM SPACE -->
+                <div class="col-lg-5">
+                    <div class="form-placeholder">
+                        <div id="lsq-portal-widget-c5fac472-f559-11ed-9135-0a5db97dc116-8fb55526-1a8c-47cd-ae16-a9dfad480f02"
+                            class="lsq-portal-widget lsq-form-widget">
+                            <script src="https://portal-widgets.lsqportal.com/assets/bootstrap-widget.js"
+                                data-widget-id="c5fac472-f559-11ed-9135-0a5db97dc116"
+                                data-version-id="8fb55526-1a8c-47cd-ae16-a9dfad480f02"
+                                data-formjs="https://forms.lsqportal.com/r21/js/lsq.form.js"
+                                data-URL="https://portal-widgets.lsqportal.com"
+                                onload="window['___lsq-portal-widget-helpers___'].bootstrapLSQWidget(event)"
+                                charset="utf-8">
+                                </script>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section text-center text-dark">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 stat-box">
+                    <h2 class="counter" data-target="200">0</h2>
+                    <p>Programs Offered</p>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 stat-box">
+                    <h2 class="counter" data-target="19">0</h2>
+                    <p>Schools</p>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 stat-box">
+                    <h2 class="counter" data-target="8000">0</h2>
+                    <p>e‑Lectures</p>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 stat-box">
+                    <h2 class="counter" data-target="10000">0</h2>
+                    <p>Research Publications</p>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 stat-box">
+                    <h2 class="counter" data-target="83000">0</h2>
+                    <p>Books in 6 Libraries</p>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 stat-box">
+                    <h2 class="counter" data-target="10000">0</h2>
+                    <p>Alumni Network</p>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 stat-box">
+                    <h2 class="counter" data-target="780">0</h2>
+                    <p>Teaching Faculty</p>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 stat-box">
+                    <h2 class="counter" data-target="275">0</h2>
+                    <p>Top Recruiters</p>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 stat-box">
+                    <h2 class="counter" data-target="13" data-prefix="₹" data-suffix="Cr+">₹0</h2>
+                    <p>Research Funding</p>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 stat-box">
+                    <h2 class="counter" data-target="30">0</h2>
+                    <p>International Collaboration</p>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 stat-box">
+                    <h2 class="counter" data-target="100">0</h2>
+                    <p>Advanced Labs</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="about-sgt py-5">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <!-- LEFT CONTENT -->
+                <div class="col-lg-9">
+                    <h2 class="fw-bold text-primary mb-3">
+                        About SGT University
+                    </h2>
+
+                    <p class="text-muted mb-0">
+                        Accredited with an <strong>A+ grade by NAAC</strong>, SGT University is a distinguished
+                        institution committed to “Nurturing Future Leaders” through academic excellence,
+                        research, and industry-driven innovation. With <strong>19 faculties offering
+                            multidisciplinary programs</strong>, the university fosters entrepreneurship,
+                        groundbreaking research, and global collaborations. Many of its faculty members are
+                        recognised in <strong>Stanford University’s “Top 2% Scientists” list</strong>,
+                        reinforcing SGT University’s leadership in research and academics.
+                    </p>
+                </div>
+
+                <!-- RIGHT BADGE -->
+                <div class="col-lg-3 text-lg-end text-center mt-4 mt-lg-0">
+                    <img src="assets/img/NAAC-Logo.svg" alt="NAAC A+ Accreditation" class="img-fluid about-naac-badge">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="disciplines-section py-5">
+        <div class="container">
+
+            <!-- Heading -->
+            <div class="row mb-4">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold text-primary">
+                        Multiple Disciplines, Infinite Possibilities
+                    </h2>
+                    <p class="text-muted">
+                        With 19 dynamic faculties, SGTU empowers students with endless opportunities.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+
+                <!-- CENTER IMAGE (comes first on mobile) -->
+                <div class="col-lg-6 text-center order-1 order-lg-2 mb-4 mb-lg-0">
+                    <img src="assets/img/StudentImage.webp" class="img-fluid disciplines-img" alt="Students">
+                </div>
+
+                <!-- LEFT: NON MEDICAL -->
+                <div class="col-lg-3 col-6 order-2 order-lg-1 mb-4 mb-lg-0">
+                    <span class="badge rounded-pill bg-primary mb-2 px-3 py-2">
+                        NON MEDICAL
+                    </span>
+
+                    <ul class="list-unstyled discipline-list">
+                        <li>Agricultural Sciences</li>
+                        <li>Behavioural Sciences</li>
+                        <li>Commerce & Management</li>
+                        <li>Education</li>
+                        <li>Engineering & Technology</li>
+                        <li>Design</li>
+                        <li>Hotel & Tourism Management</li>
+                        <li>Law</li>
+                        <li>Applied and Basic Sciences</li>
+                        <li>Humanities, Social Sciences & Liberal Arts</li>
+                        <li>Emerging Media, Communication and Film Studies</li>
+                    </ul>
+                </div>
+
+                <!-- RIGHT: MEDICAL -->
+                <div class="col-lg-3 col-6 order-3 text-lg-end">
+                    <span class="badge rounded-pill bg-secondary mb-2 px-3 py-2">
+                        MEDICAL
+                    </span>
+
+                    <ul class="list-unstyled discipline-list">
+                        <li>Allied Health Sciences</li>
+                        <li>Dental Sciences</li>
+                        <li>Indian Medical System (Ayurveda)</li>
+                        <li>Medicine and Health Sciences</li>
+                        <li>Naturopathy and Yogic Sciences</li>
+                        <li>Nursing</li>
+                        <li>Pharmacy</li>
+                        <li>Physiotherapy</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="ranking-section py-5">
+        <div class="container">
+            <!-- Section Title -->
+            <h2 class="fw-bold text-primary mb-5">
+                Ranking &amp; Achievements
+            </h2>
+
+            <div class="row g-5">
+
+                <!-- ITEM 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex align-items-start gap-3">
+                        <img src="assets/img/Naac.webp" alt="NAAC A+" class="rank-logo">
+                        <p class="mb-0">
+                            <strong>A+ accreditation by the National Assessment and Accreditation Council
+                                (NAAC)</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex align-items-start gap-3">
+                        <img src="assets/img/IIRF.webp" alt="IIRF" class="rank-logo">
+                        <p class="mb-0"><strong>
+                                4 State Rank<br>
+                                19 Zone Rank<br>
+                                45 National Rank</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex align-items-start gap-3">
+                        <img src="assets/img/NIRF.webp" alt="NIRF" class="rank-logo">
+                        <p class="mb-0">
+                            <strong>100 Ranking in Pharmacy</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex align-items-start gap-3">
+                        <img src="assets/img/theworld.webp" alt="THE Rankings" class="rank-logo">
+                        <p class="mb-0">
+                            <strong>98 National<br>
+                                1223 Teaching<br>
+                                1501+ International</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex align-items-start gap-3">
+                        <img src="assets/img/the_world_university_rankings.webp" alt="Asian University Rankings"
+                            class="rank-logo">
+                        <p class="mb-0">
+                            <strong>397 Ranks in South Asia</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex align-items-start gap-3">
+                        <img src="assets/img/mhw_ranking_1x.webp" alt="MHW Ranking" class="rank-logo">
+                        <p class="mb-0">
+                            <strong>Diamond+ (Advanced) Band<br>
+                                <small>For promoting mental health and well‑being</small></strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 7 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex align-items-start gap-3">
+                        <img src="assets/img/outlook.webp" alt="Outlook Ranking" class="rank-logo">
+                        <p class="mb-0">
+                            <strong> 48 Ranked in India</strong>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="admissions-section py-5">
+        <div class="container">
+
+            <h2 class="fw-bold text-primary mb-4">
+                Admissions Open for 2026–27
+            </h2>
+
+            <div class="row align-items-center gx-lg-5 gy-4">
+                <!-- LEFT IMAGE -->
+                <div class="col-lg-6">
+                    <img src="assets/img/StudentImage_1.webp" alt="Admissions Open"
+                        class="img-fluid rounded-4 admissions-img">
+                </div>
+
+                <!-- RIGHT CONTENT -->
+                <div class="col-lg-6 admissions-content">
+
+                    <h3 class="fw-bold text-primary mb-3">
+                        Scholarships at SGT University
+                    </h3>
+
+                    <p class="fs-5 mb-3">
+                        <strong>Up to 100% Merit‑Based Scholarships</strong><br>
+                        available under the following:
+                    </p>
+
+                    <ul class="scholarship-list mb-4">
+                        <li>10+2 Marks: Based on academic performance</li>
+                        <li>CUET Percentile: As per entrance exam results</li>
+                        <li>Sports Achievements: For outstanding sports performance</li>
+                    </ul>
+
+                    <a href="#" class="btn btn-primary apply-btn">
+                        Apply Now
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="recruiters-section py-5">
+        <!-- FULL WIDTH HEADING FOR MOBILE -->
+        <div class="col-12 d-lg-none text-center">
+            <h2 class="recruiter-heading text-primary mb-4">
+                Top Recruiters Are Ready for You
+            </h2>
+        </div>
+        <div class="container">
+            <div class="row align-items-start g-lg-5 g-4">
+
+                <!-- LEFT SIDE CONTENT -->
+                <div class="col-lg-4">
+                    <h2 class="recruiter-heading text-primary mb-4 d-none d-lg-block">
+                        Top Recruiters<br>Are Ready<br>for You
+                    </h2>
+
+                    <div class="row g-3 stats-block">
+
+                        <div class="col-6 col-sm-4 col-lg-12">
+                            <div class="stat-item">
+                                <h3>23 LPA</h3>
+                                <p>Highest Package</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-sm-4 col-lg-12">
+                            <div class="stat-item">
+                                <h3>500+</h3>
+                                <p>Campus Recruiters</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-sm-4 col-lg-12">
+                            <div class="stat-item">
+                                <h3>100%</h3>
+                                <p>Placement Assistance</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- RIGHT SIDE LOGOS -->
+                <div class="col-lg-8">
+                    <div class="row g-3 g-md-4">
+
+                        <!-- Logo Item -->
+                        <div class="col-6 col-sm-4 col-lg-4 col-md-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/accenture.webp" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/amazon.webp" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/deloitte.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/google.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/infosys.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/ibm.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/tata_consultancy.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/dhl.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/vivo.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/tech_mahindra.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/fortis.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/Medanta.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/ultratech_cement.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/max_healthcare.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/dlf.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/radisson.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/ey.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4 col-lg-4">
+                            <div class="logo-box">
+                                <img src="assets/img/Company-Logo/wipro.webp" alt="">
+                            </div>
+                        </div>
+
+                        <!-- Repeat same structure for all logos -->
+                        <!-- col-6 (mobile: 2 per row) -->
+                        <!-- col-sm-4 (tablet: 3 per row) -->
+                        <!-- col-lg-3 (desktop: 4 per row) -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="key-features-section py-5">
+        <div class="container">
+
+            <!-- Section Heading -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h2 class="fw-bold text-primary">
+                        Key Features
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- LEFT COLUMN -->
+                <div class="col-lg-6">
+                    <ul class="feature-list">
+
+                        <li>
+                            <img src="assets/img/feature-icon.svg" alt="">
+                            <p>
+                                One of India's youngest institutions with a
+                                <strong>"NAAC A+"</strong> accreditation.
+                            </p>
+                        </li>
+
+                        <li>
+                            <img src="assets/img/feature-icon.svg" alt="">
+                            <p>
+                                Dedicated centre for supporting, guiding, and
+                                motivating students to go for start‑ups (eg. ACIC).
+                            </p>
+                        </li>
+
+                        <li>
+                            <img src="assets/img/feature-icon.svg" alt="">
+                            <p>
+                                Recognized as a <strong>Business Incubator (BI)</strong>
+                                by the of Micro, Small, and Medium Enterprises (MSME),
+                                Government of India.
+                            </p>
+                        </li>
+
+                        <li>
+                            <img src="assets/img/feature-icon.svg" alt="">
+                            <p>
+                                Over <strong>200 program options</strong> across
+                                19 major medical and non‑medical disciplines.
+                            </p>
+                        </li>
+
+                        <li>
+                            <img src="assets/img/feature-icon.svg" alt="">
+                            <p>
+                                <strong>10,000+</strong> globally successful alumni.
+                            </p>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="col-lg-6">
+                    <ul class="feature-list">
+
+                        <li>
+                            <img src="assets/img/feature-icon.svg" alt="">
+                            <p>
+                                Multiple faculty members ranked in the
+                                <strong>Top 2%</strong> of Scientists in the
+                                Stanford University Ranking.
+                            </p>
+                        </li>
+
+                        <li>
+                            <img src="assets/img/feature-icon.svg" alt="">
+                            <p>
+                                World-class labs established in partnership with
+                                international organizations such as Apple, IBM, SAP,
+                                Oracle, SMC India, UNESCO Bioethics, and many others.
+                            </p>
+                        </li>
+
+                        <li>
+                            <img src="assets/img/feature-icon.svg" alt="">
+                            <p>
+                                Research and Development highlights: <strong>₹10 Crore+ in
+                                    extramural grants, ₹2 Crore+</strong> in seed money and
+                                incentives, 20+ startups, 5,000+ publications, and 600+
+                                patents.
+                            </p>
+                        </li>
+
+                        <li>
+                            <img src="assets/img/feature-icon.svg" alt="">
+                            <p>
+                                Synergy, one of <strong>North India's largest innovation and
+                                    technology festivals</strong>, hosted annually at the SGT
+                                University campus.
+                            </p>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="international-collab-section py-5">
+        <div class="container text-center">
+
+            <!-- Heading -->
+            <h2 class="fw-bold text-primary mb-4" style="text-align: left;">
+                30+ International Collaboration
+            </h2>
+
+            <!-- Logos Full Width Image -->
+            <div class="collab-logos-wrapper">
+                <img src="assets/img/international-collaboration-logos.webp" alt="International Collaborations"
+                    class="img-fluid collab-logos">
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-5 testimonial-section">
+        <div class="container">
+
+            <!-- Heading + Arrows -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold text-primary mb-0">Student Testimonials</h2>
+
+                <div class="testimonial-nav">
+                    <div class="swiper-button-prev testimonial-prev"></div>
+                    <div class="swiper-button-next testimonial-next"></div>
+                </div>
+            </div>
+
+            <!-- Swiper -->
+            <div class="swiper testimonial-swiper">
+                <div class="swiper-wrapper">
+
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide p-5">
+                        <div class="testimonial-card">
+                            <div class="row align-items-center g-4">
+
+                                <div class="col-md-3 text-center">
+                                    <img src="assets/img/dr_divya_tayal_1.webp" class="testimonial-img" alt="">
+                                </div>
+
+                                <div class="col-md-9">
+                                    <h5 class="fw-bold mb-2 text-white">Dr. Divya Tayal</h5>
+                                    <p class="testimonial-text">
+                                        My vision came alive effortlessly. Their blend of casual and professional
+                                        approach"The
+                                        University opened up opportunities to explore and broaden my skills. I would
+                                        relish
+                                        serving my Alma Mater in any way. The learning environment motivates students to
+                                        push
+                                        boundaries. There are exchanges with international universities. I gained
+                                        perspectives
+                                        on global healthcare systems. SGT nurtures socially responsible leaders." made
+                                        the
+                                        process a breeze. Creativity flowed, and the results were beyond my
+                                        expectations.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide p-5">
+                        <div class="testimonial-card">
+                            <div class="row align-items-center g-4">
+
+                                <div class="col-md-3 text-center">
+                                    <img src="assets/img/dr_divya_tayal_1.webp" class="testimonial-img" alt="">
+                                </div>
+
+                                <div class="col-md-9">
+                                    <h5 class="fw-bold mb-2 text-white">Rahul Sharma</h5>
+                                    <p class="testimonial-text">
+                                        My vision came alive effortlessly. Their blend of casual and professional
+                                        approach"The
+                                        University opened up opportunities to explore and broaden my skills. I would
+                                        relish
+                                        serving my Alma Mater in any way. The learning environment motivates students to
+                                        push
+                                        boundaries. There are exchanges with international universities. I gained
+                                        perspectives
+                                        on global healthcare systems. SGT nurtures socially responsible leaders." made
+                                        the
+                                        process a breeze. Creativity flowed, and the results were beyond my
+                                        expectations.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="admission-process-section py-5">
+        <div class="container text-center">
+
+            <!-- Heading -->
+            <h2 class="fw-bold text-primary mb-2">Admission Process</h2>
+            <p class="text-muted mb-4">
+                Your admission made simple—with guidance at every step.
+            </p>
+
+            <!-- Admission Process Image -->
+            <div class="admission-process-img">
+                <img src="assets/img/admission-process.webp" alt="Admission Process" class="img-fluid">
+            </div>
+
+        </div>
+    </section>
+
+    <section class="future-leaders-section position-relative overflow-hidden py-5">
+        <div class="container text-center position-relative z-2">
+
+            <!-- CONTENT -->
+            <h2 class="fw-bold text-white mb-5 mt-3">
+                Nurturing Future Leaders
+                <span class="ms-1">✈️</span>
+            </h2>
+
+            <p class="text-white mb-4 px-lg-5">
+                SGT University empowers students to take initiative<br>
+                and make a difference in the world.
+            </p>
+
+            <div class="d-flex justify-content-center align-items-center gap-2 text-white fw-semibold">
+                <img src="assets/img/Phone-Icon_Footer.svg" alt="">
+                <span class="fs-1">1800 102 5661</span>
+            </div>
+
+        </div>
+
+        <!-- BLUE CIRCLE BACKGROUND -->
+        <img src="assets/img/Ellipse.svg" alt="Background Circle" class="bg-circle-img">
+
+        <!-- BUILDING IMAGE -->
+        <img src="assets/img/Footer-Building.webp" alt="University Building" class="building-img">
+    </section>
+
+    <footer class="sct-footer border-top">
+        <div class="container py-3">
+
+            <div class="row align-items-center gy-3">
+
+                <!-- LEFT: LOGO + NAAC -->
+                <div class="col-lg-4 col-md-6 d-flex align-items-center gap-3">
+                    <img src="assets/img/SGT Logo.svg" alt="SGT University" class="footer-logo">
+                    <!-- <img src="assets/img/naac-a-plus.svg" alt="NAAC A+" class="footer-naac"> -->
+                </div>
+
+                <!-- CENTER: CONTACT INFO -->
+                <div class="col-lg-5 col-md-6">
+                    <ul class="footer-contact list-unstyled mb-0">
+
+                        <li class="d-flex align-items-start gap-2">
+                            <img src="assets/img/Location-Icon.svg" alt="">
+                            <span>
+                                Budhera, Gurugram-Badli Road, Gurugram- 122505, Haryana, India.
+                            </span>
+                        </li>
+
+                        <li class="d-flex align-items-center gap-2">
+                            <img src="assets/img/Footer_Phone Icon.svg" alt="">
+                            <span>1800 102 5661</span>
+                        </li>
+
+                        <li class="d-flex align-items-center gap-2">
+                            <img src="assets/img/Email-Icon.svg" alt="">
+                            <span>info@sgtuniversity.org</span>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- RIGHT: SOCIAL ICONS -->
+                <div class="col-lg-3 text-lg-end text-md-start">
+                    <div class="footer-social d-flex justify-content-lg-end gap-3">
+
+                        <a href="#"><img src="assets/img/FB.svg" alt="Facebook"></a>
+                        <a href="#"><img src="assets/img/Instagram.svg" alt="Instagram"></a>
+                        <a href="#"><img src="assets/img/linkedin.svg" alt="LinkedIn"></a>
+                        <a href="#"><img src="assets/img/youtube.svg" alt="YouTube"></a>
+                        <a href="#"><img src="assets/img/twitter-x.webp" alt="Twitter"></a>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- COPYRIGHT -->
+        <div class="footer-bottom text-center py-2">
+            © 2025 SGT University
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script>
+        window.addEventListener("scroll", function () {
+            const header = document.getElementById("mainHeader");
+            if (window.scrollY > 80) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+    </script>
+
+    <script>
+        const counters = document.querySelectorAll('.counter');
+
+        const startCounter = (counter) => {
+            const target = +counter.getAttribute('data-target');
+            const prefix = counter.getAttribute('data-prefix') || '';
+            const suffix = counter.getAttribute('data-suffix') || '+';
+            let count = 0;
+
+            const speed = 200;
+
+            const update = () => {
+                const increment = target / speed;
+                if (count < target) {
+                    count += increment;
+                    counter.innerText = prefix + Math.ceil(count) + suffix;
+                    requestAnimationFrame(update);
+                } else {
+                    counter.innerText = prefix + target + suffix;
+                }
+            };
+            update();
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => observer.observe(counter));
+    </script>
+    <script>
+        new Swiper(".testimonial-swiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: ".testimonial-next",
+                prevEl: ".testimonial-prev",
+            },
+        });
+    </script>
+
+
+</body>
+
+</html>
