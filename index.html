@@ -31,6 +31,11 @@
             background-color: #134080;
         }
 
+        .btn-p1:hover {
+            color: #fff;
+            background-color: #134080;
+        }
+
         /* HEADER */
         #mainHeader {
             transition: all 0.3s ease;
@@ -134,6 +139,69 @@
                 max-width: 90%;
                 margin: 0 auto 20px;
                 display: block;
+            }
+        }
+
+        /* ===== LEFT CONTENT ===== */
+        .hero-left-content {
+            max-width: 95%;
+        }
+
+        /* ===== LOGO GRID ===== */
+        .hero-logo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            max-width: 520px;
+        }
+
+        /* LOGO BOX */
+        .logo-box {
+            background: #ffffff;
+            border-radius: 12px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        /* LOGO IMAGE */
+        .logo-box img {
+            max-width: 85%;
+            max-height: 60px;
+            object-fit: contain;
+        }
+
+        /* CTA */
+        .hero-cta {
+            margin-top: 30px;
+        }
+
+        /* ===== TABLET ===== */
+        @media (max-width: 991px) {
+            .hero-logo-grid {
+                margin: 0 auto;
+            }
+
+            .hero-cta {
+                text-align: center;
+            }
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 575px) {
+            .hero-logo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+
+            .logo-box {
+                height: 80px;
+            }
+
+            .hero-cta h4 {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -948,23 +1016,52 @@
             <div class="row align-items-start h-100 gx-5">
 
                 <!-- LEFT CONTENT -->
+                <!-- LEFT CONTENT -->
                 <div class="col-lg-7 text-black text-center text-lg-start hero-left-content">
+
                     <h2 class="fw-bold mb-2">
-                        Join an inspiring campus with seamless Global Connectivity
+                        Proudly Rated Among the Top Universities
                     </h2>
 
-                    <h4 class="fw-bold mb-2">
-                        (Just 25 minutes away from IGI Airport)
-                    </h4>
-
                     <p class="fst-italic mb-4 fw-bold">
-                        SGT University blends creative research and inclusive education to shape future-ready leaders
-                        who pioneer innovation,
-                        sustainability, and meaningful social impact, while making a difference in the community.
+                        by Leading National and International Institutions.
                     </p>
 
-                    <img src="assets/img/banner-logos.webp" class="img-fluid hero-logos" alt="University Rankings">
+                    <!-- LOGO GRID -->
+                    <div class="hero-logo-grid mb-4">
+                        <div class="logo-box">
+                            <img src="assets/img/IIRF.webp" alt="Logo 1">
+                        </div>
+                        <div class="logo-box">
+                            <img src="assets/img/NIRF.webp" alt="Logo 2">
+                        </div>
+                        <div class="logo-box">
+                            <img src="assets/img/qs.png" alt="Logo 3">
+                        </div>
+                        <div class="logo-box">
+                            <img src="assets/img/theworld.webp" alt="Logo 4">
+                        </div>
+                        <div class="logo-box">
+                            <img src="assets/img/mhw_ranking_1x.webp" alt="Logo 5">
+                        </div>
+                        <div class="logo-box">
+                            <img src="assets/img/outlook.webp" alt="Logo 6">
+                        </div>
+                    </div>
+
+                    <!-- ADMISSION CTA -->
+                    <div class="hero-cta">
+                        <h4 class="fw-bold mb-3 text-black">
+                            Admissions Open 2025–26
+                        </h4>
+
+                        <a href="#" class="btn btn-p1 btn-lg">
+                            Apply Today
+                        </a>
+                    </div>
+
                 </div>
+
 
                 <!-- RIGHT FIXED FORM BOX -->
                 <div class="col-lg-5 d-flex justify-content-center">
