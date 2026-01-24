@@ -26,6 +26,11 @@
             color: #134080;
         }
 
+        .btn-p1 {
+            color: #fff;
+            background-color: #134080;
+        }
+
         /* HEADER */
         #mainHeader {
             transition: all 0.3s ease;
@@ -138,6 +143,7 @@
 
         .stat-box {
             position: relative;
+            padding-left: 40px;
         }
 
         .stat-box h2 {
@@ -816,7 +822,7 @@
                 </div> -->
 
                 <!-- Right -->
-                <a href="#" class="btn btn-primary rounded-3 px-4">Apply Now</a>
+                <a href="#" class="btn btn-p1 rounded-3 px-4 py-2">Apply Now</a>
 
             </div>
         </div>
@@ -861,9 +867,9 @@
         </div>
     </section>
 
-    <section class="stats-section text-center text-dark">
+    <section class="stats-section text-left text-dark">
         <div class="container">
-            <div class="row g-4 justify-content-center">
+            <div class="row g-4 justify-content-left">
 
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2 stat-box">
                     <h2 class="counter" data-target="200">0</h2>
@@ -955,7 +961,7 @@
         </div>
     </section>
 
-    <section class="disciplines-section pt-4-">
+    <section class="disciplines-section pt-4">
         <div class="container">
 
             <!-- Heading -->
@@ -972,9 +978,28 @@
 
             <div class="row align-items-center">
 
-                <!-- CENTER IMAGE (comes first on mobile) -->
+                <!-- CENTER SWIPER (comes first on mobile) -->
                 <div class="col-lg-6 text-center order-1 order-lg-2 mb-4 mb-lg-0">
-                    <img src="assets/img/StudentImage.webp" class="img-fluid disciplines-img" alt="Students">
+                    <div class="swiper disciplinesSwiper">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <img src="assets/img/StudentImage.webp" class="img-fluid disciplines-img"
+                                    alt="Students">
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="assets/img/StudentImage.webp" class="img-fluid disciplines-img"
+                                    alt="Campus Life">
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="assets/img/StudentImage.webp" class="img-fluid disciplines-img"
+                                    alt="Learning">
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
                 <!-- LEFT: NON MEDICAL -->
@@ -1019,6 +1044,7 @@
             </div>
         </div>
     </section>
+
 
 
     <section class="ranking-section py-5">
@@ -1143,7 +1169,7 @@
                         <li>Sports Achievements: For outstanding sports performance</li>
                     </ul>
 
-                    <a href="#" class="btn btn-primary apply-btn">
+                    <a href="#" class="btn btn-p1 apply-btn">
                         Apply Now
                     </a>
 
@@ -1525,7 +1551,7 @@
 
 
 
-    <section class="admission-process-section py-5">
+    <section class="admission-process-section pt-5">
         <div class="container text-center">
 
             <!-- Heading -->
@@ -1542,10 +1568,10 @@
         </div>
     </section>
 
-    <section class="future-leaders-section position-relative overflow-hidden py-5">
-        <div class="container text-center position-relative z-2">
+    <section class="future-leaders-section position-relative overflow-hidden">
+        <!-- <div class="container text-center position-relative z-2">
 
-            <!-- CONTENT -->
+           
             <h2 class="fw-bold text-white mb-5 mt-3">
                 Nurturing Future Leaders
                 <span class="ms-1">✈️</span>
@@ -1564,10 +1590,10 @@
             </div>
 
 
-        </div>
+        </div> -->
 
         <!-- BLUE CIRCLE BACKGROUND -->
-        <img src="assets/img/Ellipse.svg" alt="Background Circle" class="bg-circle-img">
+        <!-- <img src="assets/img/Ellipse.svg" alt="Background Circle" class="bg-circle-img"> -->
 
         <!-- BUILDING IMAGE -->
         <img src="assets/img/Footer-Building.webp" alt="University Building" class="building-img">
@@ -1711,6 +1737,21 @@
             },
         });
     </script>
+    <script>
+        new Swiper(".disciplinesSwiper", {
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            speed: 800,
+            effect: "fade",   // optional: smooth fade
+            fadeEffect: {
+                crossFade: true
+            }
+        });
+    </script>
+
 
 
 </body>
