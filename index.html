@@ -802,6 +802,92 @@
             }
         }
     </style>
+
+    <style>
+        /* Section height & spacing */
+        .facultyShowcase-section {
+            background: #f8fafc;
+        }
+
+        .py-6 {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+
+        .min-vh-75 {
+            min-height: 75vh;
+        }
+
+        .faculty-slide-card {
+            height: 520px;
+            /* increased height for single image focus */
+            border-radius: 24px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+        }
+
+        .facultySwiper .swiper-slide {
+            padding: 0;
+        }
+
+        /* Titles */
+        .section-subtitle {
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #134080;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: 38px;
+            font-weight: 800;
+        }
+
+        .section-title span {
+            color: #134080;
+        }
+
+        /* Tabs */
+        .facultyTabs .nav-link {
+            border-radius: 30px;
+            padding: 10px 26px;
+            font-weight: 600;
+            color: #1f2937;
+            background: #e5e7eb;
+            margin-right: 10px;
+        }
+
+        .facultyTabs .nav-link.active {
+            background: #134080;
+            color: #fff;
+        }
+
+        /* Faculty list */
+        .faculty-name-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .faculty-name-list.two-col {
+            columns: 2;
+        }
+
+        .faculty-name-list li {
+            padding: 8px 0;
+            font-weight: 500;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .faculty-name-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #134080;
+            font-size: 22px;
+        }
+    </style>
 </head>
 
 <body>
@@ -984,13 +1070,11 @@
                         <div class="swiper-wrapper">
 
                             <div class="swiper-slide">
-                                <img src="assets/img/StudentImage.webp" class="img-fluid disciplines-img"
-                                    alt="Students">
+                                <img src="assets/img/dis1.jpg" class="img-fluid disciplines-img" alt="Students">
                             </div>
 
                             <div class="swiper-slide">
-                                <img src="assets/img/StudentImage.webp" class="img-fluid disciplines-img"
-                                    alt="Campus Life">
+                                <img src="assets/img/dis2.JPG" class="img-fluid disciplines-img" alt="Campus Life">
                             </div>
 
                             <div class="swiper-slide">
@@ -998,11 +1082,18 @@
                                     alt="Learning">
                             </div>
 
+                            <div class="swiper-slide">
+                                <img src="assets/img/dis3.jpg" class="img-fluid disciplines-img" alt="Learning">
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="assets/img/dis4.jpg" class="img-fluid disciplines-img" alt="Learning">
+                            </div>
+
                         </div>
                     </div>
                 </div>
 
-                <!-- LEFT: NON MEDICAL -->
                 <div class="col-lg-3 col-6 order-2 order-lg-1 mb-4 mb-lg-0">
                     <span class="badge rounded-pill bg-primary mb-2 px-3 py-2">
                         NON MEDICAL
@@ -1023,7 +1114,6 @@
                     </ul>
                 </div>
 
-                <!-- RIGHT: MEDICAL -->
                 <div class="col-lg-3 col-6 order-3 text-lg-end">
                     <span class="badge rounded-pill bg-secondary mb-2 px-3 py-2">
                         MEDICAL
@@ -1044,6 +1134,120 @@
             </div>
         </div>
     </section>
+
+
+    <section class="facultyShowcase-section py-6 position-relative">
+        <div class="container">
+            <div class="row align-items-center min-vh-75">
+
+                <!-- LEFT : TALL IMAGE SWIPER -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="swiper facultySwiper h-100">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/dis1.jpg')">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/dis2.JPG')">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/dis3.jpg')">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="faculty-slide-card"
+                                    style="background-image:url('assets/img/StudentImage.webp')"></div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/sbsc.jpg')">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/feat.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT : TABS + FACULTY LIST -->
+                <div class="col-lg-6">
+                    <div class="facultyContent ps-lg-5">
+
+                        <h2 class="section-title mb-4">
+                            <span>Multiple Disciplines, </span>Infinite Possibilities
+                        </h2>
+                        <p class="text-black">With 19 dynamic faculties, SGTU empowers students with endless
+                            opportunities.</p>
+
+                        <!-- Tabs -->
+                        <ul class="nav nav-pills facultyTabs mb-4" role="tablist">
+                            <li class="nav-item">
+                                <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#nonMedical"
+                                    type="button">
+                                    Non-Medical
+                                </button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#medical" type="button">
+                                    Medical
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content">
+
+                            <!-- NON MEDICAL -->
+                            <div class="tab-pane fade show active" id="nonMedical">
+                                <ul class="faculty-name-list two-col">
+                                    <li>Agricultural Sciences</li>
+                                    <li>Behavioural Sciences</li>
+                                    <li>Commerce & Management</li>
+                                    <li>Education</li>
+                                    <li>Engineering & Technology</li>
+                                    <li>Design</li>
+                                    <li>Hotel & Tourism Management</li>
+                                    <li>Law</li>
+                                    <li>Basic and Applied Sciences</li>
+                                    <li>Humanities, Social Sciences & Liberal Arts</li>
+                                    <li>Emerging Media, Communication and Film Studies</li>
+                                </ul>
+                            </div>
+
+                            <!-- MEDICAL -->
+                            <div class="tab-pane fade" id="medical">
+                                <ul class="faculty-name-list two-col">
+                                    <li>Allied Health Sciences</li>
+                                    <li>Dental Sciences</li>
+                                    <li>Medicine and Health Sciences</li>
+                                    <li>Indian Medical System (Ayurveda)</li>
+
+
+                                    <li>Nursing</li>
+                                    <li>Naturopathy and Yogic Sciences</li>
+                                    <li>Pharmacy</li>
+                                    <li>Physiotherapy</li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <!-- <a href="#" class="btn btn-primary mt-4">
+                            View All Faculties →
+                        </a> -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
 
 
 
@@ -1751,6 +1955,23 @@
             }
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+        new Swiper(".facultySwiper", {
+            slidesPerView: 1,   /* ONLY ONE IMAGE */
+            slidesPerGroup: 1, /* SLIDE BY ONE */
+            spaceBetween: 0,
+            loop: true,
+            speed: 1000,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            effect: "slide", /* can switch to fade if needed */
+        });
+    </script>
+
 
 
 
