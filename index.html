@@ -48,11 +48,14 @@
             color: #000;
         }
 
-        /* ===== HERO BASE ===== */
+        /* ===== HERO FIXED HEIGHT ===== */
         .hero-section {
-            min-height: 80vh;
-            padding: 200px 0 40px;
-            background: url("assets/img/Banner-image.webp") center center / cover no-repeat;
+            height: 100vh;
+            /* FIXED HEIGHT */
+            min-height: 680px;
+            /* Safety for small laptops */
+            padding: 180px 0 40px;
+            background: url("assets/img/Banner-image.webp") center / cover no-repeat;
             position: relative;
             overflow: hidden;
         }
@@ -69,69 +72,68 @@
         .hero-section .container {
             position: relative;
             z-index: 2;
+            height: 100%;
         }
 
-        /* ===== RIGHT CARD ===== */
+        /* ===== FORM CARD (LOCKED SIZE) ===== */
         .form-placeholder {
-            background: rgba(255, 255, 255, 0.95);
+            width: 100%;
+            max-width: 420px;
+            height: 540px;
+            /* 🔒 LOCKED HEIGHT */
+            background: rgba(255, 255, 255, 0.97);
             border-radius: 18px;
-            min-height: 420px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+            display: flex;
+            align-items: stretch;
+            overflow: hidden;
+            /* 🔒 Prevent resizing */
         }
 
-        /* ===================================================
-   TABLET (≤ 991px)
-=================================================== */
+        /* INTERNAL SCROLL */
+        .form-scroll {
+            width: 100%;
+            padding: 20px;
+            overflow-y: auto;
+            /* 🔥 Scroll inside */
+        }
+
+        /* Prevent LSQ expanding container */
+        .lsq-form-widget {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        /* ===== TABLET ===== */
         @media (max-width: 991px) {
             .hero-section {
-                min-height: auto;
-                padding: 160px 0 60px;
-                text-align: center;
-                background-position: center top;
-            }
-
-            .hero-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .hero-section p {
-                font-size: 0.95rem;
+                height: auto;
+                min-height: unset;
+                padding: 140px 0 60px;
             }
 
             .form-placeholder {
-                margin-top: 35px;
-                min-height: 380px;
+                height: 470px;
+                margin-top: 30px;
             }
         }
 
-        /* ===================================================
-   MOBILE (≤ 575px)
-=================================================== */
+        /* ===== MOBILE ===== */
         @media (max-width: 575px) {
             .hero-section {
-                padding: 120px 0 40px;
-            }
-
-            .hero-section h2 {
-                font-size: 1.5rem;
-                line-height: 1.3;
-            }
-
-            .hero-section p {
-                font-size: 0.9rem;
-                margin-bottom: 1rem;
-            }
-
-            .hero-section img {
-                max-width: 90%;
-                margin: 0 auto;
-                display: block;
+                padding: 110px 0 40px;
             }
 
             .form-placeholder {
-                min-height: 300px;
+                height: 360px;
                 border-radius: 14px;
-                max-width: 500px !important;
+            }
+
+            .hero-logos {
+                max-width: 90%;
+                margin: 0 auto 20px;
+                display: block;
             }
         }
     </style>
@@ -265,33 +267,55 @@
     </style>
     <style>
         .ranking-section {
-            background-color: #fff;
+            background-color: #ffffff;
         }
 
+        /* Rank card */
         .rank-box {
-            padding: 15px 10px;
+            padding: 18px 16px;
+            border-radius: 14px;
+            align-items: flex-start;
+            transition: all 0.3s ease;
         }
 
-        .rank-logo {
-            width: 180px;
-            height: auto;
+        /* Equal-size logo container */
+        .rank-logo-box {
+            width: 150px;
+            height: 100px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Logo image */
+        .rank-logo-box img {
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
         }
 
+        /* Text styling */
         .rank-box p {
             font-size: 15px;
             color: #333;
             line-height: 1.5;
         }
 
+        /* Hover effect (optional but premium) */
+        .rank-box:hover .rank-logo-box {
+            background: #eef2ff;
+            border-color: #c7d2fe;
+        }
+
         /* Responsive tweaks */
         @media (max-width: 575px) {
-            .rank-box {
-                flex-direction: row;
-            }
-
-            .rank-logo {
+            .rank-logo-box {
                 width: 60px;
+                height: 60px;
             }
 
             .rank-box p {
@@ -818,18 +842,23 @@
             min-height: 75vh;
         }
 
+        .facultySwiper {
+            display: none;
+            border-radius: 24px;
+        }
+
+        .facultySwiper.active {
+            display: block;
+        }
+
         .faculty-slide-card {
             height: 520px;
-            /* increased height for single image focus */
             border-radius: 24px;
             background-size: cover;
             background-position: center;
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
         }
 
-        .facultySwiper .swiper-slide {
-            padding: 0;
-        }
 
         /* Titles */
         .section-subtitle {
@@ -915,36 +944,43 @@
     </header>
 
     <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-start gx-5"> <!-- gx-5 adds gap -->
+        <div class="container h-100">
+            <div class="row align-items-start h-100 gx-5">
 
                 <!-- LEFT CONTENT -->
-                <div class="col-lg-7 text-black text-center text-lg-start pt-4 pt-lg-0">
+                <div class="col-lg-7 text-black text-center text-lg-start hero-left-content">
                     <h2 class="fw-bold mb-2">
-                        Proudly Rated Among the Top Universities
+                        Join an inspiring campus with seamless Global Connectivity
                     </h2>
 
+                    <h4 class="fw-bold mb-2">
+                        (Just 25 minutes away from IGI Airport)
+                    </h4>
+
                     <p class="fst-italic mb-4 fw-bold">
-                        by Leading National and International Institutions.
+                        SGT University blends creative research and inclusive education to shape future-ready leaders
+                        who pioneer innovation,
+                        sustainability, and meaningful social impact, while making a difference in the community.
                     </p>
 
-                    <!-- SINGLE LOGO IMAGE -->
-                    <img src="assets/img/banner-logos.webp" class="img-fluid" alt="University Rankings">
+                    <img src="assets/img/banner-logos.webp" class="img-fluid hero-logos" alt="University Rankings">
                 </div>
 
-                <!-- RIGHT EMPTY FORM SPACE -->
-                <div class="col-lg-5 d-flex justify-content-center align-items-center mt-4 mt-lg-0">
+                <!-- RIGHT FIXED FORM BOX -->
+                <div class="col-lg-5 d-flex justify-content-center">
                     <div class="form-placeholder">
-                        <div id="lsq-portal-widget-c5fac472-f559-11ed-9135-0a5db97dc116-8fb55526-1a8c-47cd-ae16-a9dfad480f02"
-                            class="lsq-portal-widget lsq-form-widget">
-                            <script src="https://portal-widgets.lsqportal.com/assets/bootstrap-widget.js"
-                                data-widget-id="c5fac472-f559-11ed-9135-0a5db97dc116"
-                                data-version-id="8fb55526-1a8c-47cd-ae16-a9dfad480f02"
-                                data-formjs="https://forms.lsqportal.com/r21/js/lsq.form.js"
-                                data-URL="https://portal-widgets.lsqportal.com"
-                                onload="window['___lsq-portal-widget-helpers___'].bootstrapLSQWidget(event)"
-                                charset="utf-8">
-                                </script>
+                        <div class="form-scroll">
+                            <div id="lsq-portal-widget-c5fac472-f559-11ed-9135-0a5db97dc116-8fb55526-1a8c-47cd-ae16-a9dfad480f02"
+                                class="lsq-portal-widget lsq-form-widget">
+                                <script src="https://portal-widgets.lsqportal.com/assets/bootstrap-widget.js"
+                                    data-widget-id="c5fac472-f559-11ed-9135-0a5db97dc116"
+                                    data-version-id="8fb55526-1a8c-47cd-ae16-a9dfad480f02"
+                                    data-formjs="https://forms.lsqportal.com/r21/js/lsq.form.js"
+                                    data-URL="https://portal-widgets.lsqportal.com"
+                                    onload="window['___lsq-portal-widget-helpers___'].bootstrapLSQWidget(event)"
+                                    charset="utf-8">
+                                    </script>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -952,6 +988,8 @@
             </div>
         </div>
     </section>
+
+
 
     <section class="stats-section text-left text-dark">
         <div class="container">
@@ -1064,10 +1102,9 @@
         </div>
     </section>
 
-    <section class="disciplines-section pt-4">
+    <!-- <section class="disciplines-section pt-4">
         <div class="container">
 
-            <!-- Heading -->
             <div class="row mb-4">
                 <div class="col-lg-8">
                     <h2 class="fw-bold text-p1">
@@ -1080,8 +1117,6 @@
             </div>
 
             <div class="row align-items-center">
-
-                <!-- CENTER SWIPER (comes first on mobile) -->
                 <div class="col-lg-6 text-center order-1 order-lg-2 mb-4 mb-lg-0">
                     <div class="swiper disciplinesSwiper">
                         <div class="swiper-wrapper">
@@ -1150,7 +1185,7 @@
 
             </div>
         </div>
-    </section>
+    </section> -->
 
 
     <section class="facultyShowcase-section py-6 position-relative">
@@ -1159,14 +1194,16 @@
 
                 <!-- LEFT : TALL IMAGE SWIPER -->
                 <div class="col-lg-6 mb-5 mb-lg-0">
-                    <div class="swiper facultySwiper h-100">
+
+                    <!-- NON-MEDICAL SWIPER -->
+                    <div class="swiper facultySwiper facultySwiper-nonmedical active">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="faculty-slide-card" style="background-image:url('assets/img/dis1.jpg')">
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/non4.webp')">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="faculty-slide-card" style="background-image:url('assets/img/dis2.JPG')">
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/dis1.jpg')">
                                 </div>
                             </div>
                             <div class="swiper-slide">
@@ -1174,21 +1211,53 @@
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="faculty-slide-card"
-                                    style="background-image:url('assets/img/StudentImage.webp')"></div>
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/non1.webp')">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/non2.webp')">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/non3.webp')">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- MEDICAL SWIPER -->
+                    <div class="swiper facultySwiper facultySwiper-medical">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/med1.webp')">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/med2.webp')">
+                                </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="faculty-slide-card" style="background-image:url('assets/img/sbsc.jpg')">
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="faculty-slide-card" style="background-image:url('assets/img/feat.jpg')">
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/med4.webp')">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/med3.webp')">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="faculty-slide-card" style="background-image:url('assets/img/dis2.JPG')">
                                 </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
+
 
                 <!-- RIGHT : TABS + FACULTY LIST -->
                 <div class="col-lg-6">
@@ -1265,115 +1334,20 @@
         </div>
     </section>
 
+    <section class="international-collab-section py-5">
+        <div class="container text-center">
 
-
-
-    <section class="ranking-section py-5">
-        <div class="container">
-            <!-- Section Title -->
-            <h2 class="fw-bold text-p1 mb-5">
-                Ranking &amp; Achievements
+            <!-- Heading -->
+            <h2 class="fw-bold text-p1 mb-4" style="text-align: left;">
+                27+ International Collaboration
             </h2>
 
-            <div class="row g-5">
-
-                <!-- ITEM 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="rank-box d-flex align-items-start gap-3">
-                        <img src="assets/img/Naac.webp" alt="NAAC A+" class="rank-logo">
-                        <p class="mb-0">
-                            <strong>A+ accreditation by the National Assessment and Accreditation Council
-                                (NAAC)</strong>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- ITEM 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="rank-box d-flex align-items-start gap-3">
-                        <img src="assets/img/outlook.webp" alt="Outlook Ranking" class="rank-logo">
-                        <p class="mb-0">
-                            <strong> 48 Ranked in India</strong>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- ITEM 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="rank-box d-flex align-items-start gap-3">
-                        <img src="assets/img/NIRF.webp" alt="NIRF" class="rank-logo">
-                        <p class="mb-0">
-                            <strong>100 Ranking in Pharmacy</strong>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- ITEM 4 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="rank-box d-flex align-items-start gap-3">
-                        <img src="assets/img/theworld.webp" alt="THE Rankings" class="rank-logo">
-                        <p class="mb-0">
-                            <strong>98 National<br>
-                                1223 Teaching<br>
-                                1501+ International</strong>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- ITEM 5 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="rank-box d-flex align-items-start gap-3">
-                        <img src="assets/img/the_world_university_rankings.webp" alt="Asian University Rankings"
-                            class="rank-logo">
-                        <p class="mb-0">
-                            <strong>397 Ranks in South Asia</strong>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- ITEM 6 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="rank-box d-flex align-items-start gap-3">
-                        <img src="assets/img/mhw_ranking_1x.webp" alt="MHW Ranking" class="rank-logo">
-                        <p class="mb-0">
-                            <strong>Diamond+ (Advanced) Band<br>
-                                <small>For promoting mental health and well‑being</small></strong>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- ITEM 7 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="rank-box d-flex align-items-start gap-3">
-                        <img src="assets/img/IIRF.webp" alt="IIRF" class="rank-logo">
-                        <p class="mb-0"><strong>
-                                4 State Rank<br>
-                                19 Zone Rank<br>
-                                45 National Rank</strong>
-                        </p>
-                    </div>
-                </div>
-
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="rank-box d-flex align-items-start gap-3">
-                        <img src="assets/img/nabh.png" alt="Outlook Ranking" class="rank-logo">
-                        <p class="mb-0">
-                            <strong> 48 Ranked in India</strong>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="rank-box d-flex align-items-start gap-3">
-                        <img src="assets/img/NABL.png" alt="Outlook Ranking" class="rank-logo">
-                        <p class="mb-0">
-                            <strong> 48 Ranked in India</strong>
-                        </p>
-                    </div>
-                </div>
-
+            <!-- Logos Full Width Image -->
+            <div class="collab-logos-wrapper">
+                <img src="assets/img/international-Collaboration-Logos.webp" alt="International Collaborations"
+                    class="img-fluid collab-logos">
             </div>
+
         </div>
     </section>
 
@@ -1681,22 +1655,149 @@
         </div>
     </section>
 
-    <section class="international-collab-section py-5">
-        <div class="container text-center">
 
-            <!-- Heading -->
-            <h2 class="fw-bold text-p1 mb-4" style="text-align: left;">
-                27+ International Collaboration
+
+
+    <section class="ranking-section py-5">
+        <div class="container">
+
+            <!-- Section Title -->
+            <h2 class="fw-bold text-p1 mb-5">
+                Ranking &amp; Achievements
             </h2>
 
-            <!-- Logos Full Width Image -->
-            <div class="collab-logos-wrapper">
-                <img src="assets/img/international-Collaboration-Logos.webp" alt="International Collaborations"
-                    class="img-fluid collab-logos">
-            </div>
+            <div class="row g-4">
 
+                <!-- ITEM 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex gap-3">
+                        <div class="rank-logo-box">
+                            <img src="assets/img/Naac.webp" alt="NAAC A+">
+                        </div>
+                        <p class="mb-0">
+                            <strong>A+ accreditation by the National Assessment and Accreditation Council
+                                (NAAC)</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex gap-3">
+                        <div class="rank-logo-box">
+                            <img src="assets/img/outlook.webp" alt="Outlook Ranking">
+                        </div>
+                        <p class="mb-0">
+                            <strong>48 Ranked in India</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex gap-3">
+                        <div class="rank-logo-box">
+                            <img src="assets/img/NIRF.webp" alt="NIRF">
+                        </div>
+                        <p class="mb-0">
+                            <strong>100 Ranking in Pharmacy</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex gap-3">
+                        <div class="rank-logo-box">
+                            <img src="assets/img/theworld.webp" alt="THE Rankings">
+                        </div>
+                        <p class="mb-0">
+                            <strong>
+                                98 National<br>
+                                1223 Teaching<br>
+                                1501+ International
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex gap-3">
+                        <div class="rank-logo-box">
+                            <img src="assets/img/qs.png" alt="Asian University Rankings">
+                        </div>
+                        <p class="mb-0">
+                            <strong>397 Ranks in South Asia</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex gap-3">
+                        <div class="rank-logo-box">
+                            <img src="assets/img/mhw_ranking_1x.webp" alt="MHW Ranking">
+                        </div>
+                        <p class="mb-0">
+                            <strong>
+                                Diamond+ (Advanced) Band<br>
+                                <small>For promoting mental health and well-being</small>
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 7 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex gap-3">
+                        <div class="rank-logo-box">
+                            <img src="assets/img/IIRF.webp" alt="IIRF">
+                        </div>
+                        <p class="mb-0">
+                            <strong>
+                                4 State Rank<br>
+                                19 Zone Rank<br>
+                                45 National Rank
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 8 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex gap-3">
+                        <div class="rank-logo-box">
+                            <img src="assets/img/nabh.png" alt="NABH">
+                        </div>
+                        <p class="mb-0">
+                            <strong>Accredited by NABH</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 9 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="rank-box d-flex gap-3">
+                        <div class="rank-logo-box">
+                            <img src="assets/img/NABL.png" alt="NABL">
+                        </div>
+                        <p class="mb-0">
+                            <strong>Accredited by NABL</strong>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
+
+
+
+
+
+
+
 
     <section class="py-5 testimonial-section">
         <div class="container">
@@ -1994,19 +2095,56 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     <script>
-        new Swiper(".facultySwiper", {
-            slidesPerView: 1,   /* ONLY ONE IMAGE */
-            slidesPerGroup: 1, /* SLIDE BY ONE */
-            spaceBetween: 0,
+        const nonMedicalSwiper = new Swiper(".facultySwiper-nonmedical", {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
             loop: true,
-            speed: 1000,
+            speed: 900,
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
-            },
-            effect: "slide", /* can switch to fade if needed */
+            }
+        });
+
+        const medicalSwiper = new Swiper(".facultySwiper-medical", {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            loop: true,
+            speed: 900,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            }
+        });
+
+        /* Start only Non-Medical initially */
+        medicalSwiper.autoplay.stop();
+    </script>
+    <script>
+        document.querySelectorAll('[data-bs-toggle="pill"]').forEach(tab => {
+            tab.addEventListener('shown.bs.tab', function (event) {
+
+                const target = event.target.getAttribute('data-bs-target');
+
+                document.querySelectorAll('.facultySwiper').forEach(swiper => {
+                    swiper.classList.remove('active');
+                });
+
+                if (target === '#nonMedical') {
+                    document.querySelector('.facultySwiper-nonmedical').classList.add('active');
+                    nonMedicalSwiper.autoplay.start();
+                    medicalSwiper.autoplay.stop();
+                }
+
+                if (target === '#medical') {
+                    document.querySelector('.facultySwiper-medical').classList.add('active');
+                    medicalSwiper.autoplay.start();
+                    nonMedicalSwiper.autoplay.stop();
+                }
+            });
         });
     </script>
+
 
 
 
