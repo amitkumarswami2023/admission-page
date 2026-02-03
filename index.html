@@ -1087,6 +1087,7 @@
                 <div class="col-lg-5 d-flex justify-content-center">
                     <div id="lsq-portal-widget-f2563f7f-fff4-11f0-8ecd-02eda0793197-f256971a-fff4-11f0-8ecd-02eda0793197"
                         class="lsq-portal-widget lsq-form-widget">
+
                         <script src="https://portal-widgets.lsqportal.com/assets/bootstrap-widget.js"
                             data-widget-id="f2563f7f-fff4-11f0-8ecd-02eda0793197"
                             data-version-id="f256971a-fff4-11f0-8ecd-02eda0793197"
@@ -1095,6 +1096,7 @@
                             onload="window['___lsq-portal-widget-helpers___'].bootstrapLSQWidget(event)"
                             charset="utf-8">
                             </script>
+
                     </div>
                 </div>
 
@@ -2322,7 +2324,42 @@
             });
         });
     </script>
+    <script>
+        (function () {
+            const widgetId = "lsq-portal-widget-f2563f7f-fff4-11f0-8ecd-02eda0793197-f256971a-fff4-11f0-8ecd-02eda0793197";
 
+            const utmData = {
+                utm_campaign: "Portal_Registration",
+                utm_source: "Website Widget",
+                utm_medium: "Website_Widget_Registration",
+                referral_url: window.location.href
+            };
+
+            function addHiddenFields(form) {
+                Object.keys(utmData).forEach(key => {
+                    if (!form.querySelector('input[name="' + key + '"]')) {
+                        const input = document.createElement("input");
+                        input.type = "hidden";
+                        input.name = key;
+                        input.value = utmData[key];
+                        form.appendChild(input);
+                    }
+                });
+            }
+
+            const container = document.getElementById(widgetId);
+
+            const observer = new MutationObserver(() => {
+                const form = container.querySelector("form");
+                if (form) {
+                    addHiddenFields(form);
+                    observer.disconnect();
+                }
+            });
+
+            observer.observe(container, { childList: true, subtree: true });
+        })();
+    </script>
 
 
 
