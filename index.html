@@ -1098,6 +1098,7 @@
                             </script>
 
                     </div>
+
                 </div>
 
             </div>
@@ -2328,20 +2329,27 @@
         (function () {
             const widgetId = "lsq-portal-widget-f2563f7f-fff4-11f0-8ecd-02eda0793197-f256971a-fff4-11f0-8ecd-02eda0793197";
 
-            const utmData = {
+            function getSearchKeyword() {
+                const params = new URLSearchParams(window.location.search);
+                return params.get("q") || params.get("utm_term") || "";
+            }
+
+            const trackingData = {
                 utm_campaign: "Portal_Registration",
                 utm_source: "Website Widget",
                 utm_medium: "Website_Widget_Registration",
-                referral_url: window.location.href
+                referral_url: window.location.href,
+                referrer_domain: document.referrer || "direct",
+                search_keyword: getSearchKeyword()
             };
 
             function addHiddenFields(form) {
-                Object.keys(utmData).forEach(key => {
+                Object.keys(trackingData).forEach(key => {
                     if (!form.querySelector('input[name="' + key + '"]')) {
                         const input = document.createElement("input");
                         input.type = "hidden";
                         input.name = key;
-                        input.value = utmData[key];
+                        input.value = trackingData[key];
                         form.appendChild(input);
                     }
                 });
